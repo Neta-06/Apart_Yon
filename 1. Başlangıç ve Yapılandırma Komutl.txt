@@ -1,0 +1,92 @@
+1. Başlangıç ve Yapılandırma Komutları
+git init: Bulunduğunuz dizini yeni bir Git deposu (repository) haline getirir.
+
+git clone <url>: Uzak bir depoyu (GitHub, GitLab vb.) bilgisayarınıza klonlar.
+
+git config --global user.name "Adınız": Git için küresel kullanıcı adınızı belirler.
+
+git config --global user.email "eposta@example.com": Git için küresel e-posta adresinizi belirler.
+
+2. Durum ve Değişiklik Takibi
+git status: Değiştirilen, eklenen veya izlenmeyen dosyaların anlık durumunu gösterir.
+
+git add <dosya_adi>: Belirtilen dosyayı sahneye (staging area) ekler.
+
+git add .: Değişiklik yapılan tüm dosyaları sahneye ekler.
+
+git diff: Yapılan ancak henüz sahneye eklenmemiş değişiklikleri gösterir.
+
+git log: Projedeki geçmiş commit (kayıt) geçmişini ve detaylarını listeler.
+
+3. Kaydetme (Commit) İşlemleri
+git commit -m "Mesaj": Sahnedeki değişiklikleri bir açıklama mesajı ile yerel depoya kaydeder.
+
+git commit -am "Mesaj": Değiştirilmiş tüm dosyaları tek adımda sahneye ekler ve commit'ler.
+
+4. Dallanma (Branch) Yönetimi
+git branch: Mevcut dalları listeler.
+
+git branch <dal_adi>: Yeni bir dal (branch) oluşturur.
+
+git checkout <dal_adi>: Belirtilen dala geçiş yapar.
+
+git checkout -b <dal_adi>: Yeni bir dal oluşturur ve doğrudan o dala geçiş yapar.
+
+git merge <dal_adi>: Belirtilen daldaki değişiklikleri bulunduğunuz aktif dala birleştirir.
+
+git branch -d <dal_adi>: Belirtilen dalı siler.
+
+5. Uzak Sunucu (Remote) İşlemleri
+git remote add origin <url>: Yerel depoyu uzak bir sunucu adresiyle eşleştirir.
+
+git push origin <dal_adi>: Yerel commit'leri uzak sunucudaki ilgili dala gönderir.
+
+git pull: Uzak sunucudaki son değişiklikleri çeker ve mevcut dalınızla birleştirir.
+
+git fetch: Uzak depodaki değişiklikleri indirir ancak mevcut kodlarınızla otomatik birleştirmez.
+
+6. Geri Alma ve Temizleme İşlemleri
+git restore <dosya_adi>: Çalışma dizinindeki yapılan değişiklikleri iptal edip son commit haline döndürür.
+
+git restore --staged <dosya_adi>: Sahneye (staging area) eklenmiş bir dosyayı sahneden çıkarır.
+
+git reset --soft HEAD~1: Son yapılan commit'i iptal eder ancak değişiklikleri korur.
+
+git reset --hard HEAD~1: Son yapılan commit'i ve yapılan değişiklikleri tamamen siler (Dikkatli kullanılmalıdır).
+
+git stash: Tamamlanmamış değişiklikleri geçici bir hafızaya alır ve çalışma alanınızı temizler.
+
+git stash pop: stash ile saklanan son değişiklikleri geri yükler.
+
+
+
+
+
+
+
+
+1. Yerel Dal Adını Değiştirin
+Şu an master dalındayken adını main yapın:
+
+Bash
+git branch -m master main
+2. Yeni main Dalını GitHub'a Yükleyin
+Yeni adıyla dalı GitHub uzak deposuna gönderin:
+
+Bash
+git push -u origin main
+3. GitHub Üzerinde Varsayılan Dalı Güncelleyin (Önemli Step)
+GitHub'da Apart_Yon deponuza gidin.
+
+Settings (Ayarlar) sekmesine tıklayın.
+
+Sol menüden Branches bölümüne girin.
+
+Default branch seçeneğindeki ok ikonuna tıklayarak varsayılan dalı main olarak değiştirin ve Update butonuna basın.
+
+4. Eski master Dalını GitHub'dan Silin
+GitHub üzerinde varsayılan dalı main yaptıktan sonra eski master dalını uzak depodan temizleyebilirsiniz:
+
+Bash
+git push origin --delete master
+Bu adımların ardından projenizin ana dalı hem bilgisayarınızda hem de GitHub üzerinde main olarak güncellenmiş olacaktır.
